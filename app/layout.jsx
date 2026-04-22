@@ -1,5 +1,6 @@
 import { Syne, Inter } from 'next/font/google'
 import './globals.css'
+import Cursor from '@/components/Cursor'
 
 const syne = Syne({
   subsets: ['latin'],
@@ -43,6 +44,7 @@ export default function RootLayout({ children }) {
       className={`${syne.variable} ${jakarta.variable}`}
     >
       <body className="bg-bg text-text antialiased">
+        <Cursor />
         {children}
       </body>
     </html>

@@ -25,6 +25,26 @@ body {
   }
 }
 
+.cursor-dot {
+  transition: opacity 0.15s ease;
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+
+.cursor-dot[data-hover="true"] {
+  opacity: 0;
+}
+
+.cursor-ring[data-hover="true"] {
+  width: 48px;
+  height: 48px;
+  border-color: rgba(4, 120, 87, 0.55);
+}
+
 /* ── Scrollbar ────────────────────────────── */
 ::-webkit-scrollbar {
   width: 3px;
