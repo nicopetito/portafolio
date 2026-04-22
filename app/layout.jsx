@@ -22,18 +22,35 @@ export const metadata = {
   ),
   title: 'Nicolás Videla Petito — Desarrollador Web',
   description:
-    'Desarrollador web en formación avanzada. Construyo productos digitales con React, Next.js y Supabase. Mar del Plata, Argentina.',
+    'Desarrollador web. Construyo productos digitales con React, Next.js y Supabase. Mar del Plata, Argentina.',
   keywords: ['desarrollador web', 'web developer', 'React', 'Next.js', 'Supabase', 'Mar del Plata', 'freelance'],
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: 'Nicolás Videla Petito — Desarrollador Web',
     description: 'Construyo productos digitales que resuelven problemas reales. React, Next.js, Supabase.',
     type: 'website',
     locale: 'es_AR',
+    url: '/',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Nicolás Videla Petito — Desarrollador Web',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Nicolás Videla Petito — Desarrollador Web',
     description: 'Construyo productos digitales que resuelven problemas reales. React, Next.js, Supabase.',
+    images: ['/opengraph-image'],
   },
 }
 

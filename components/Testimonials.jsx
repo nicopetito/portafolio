@@ -16,7 +16,7 @@ export default function Testimonials() {
         </span>
       </Reveal>
 
-      <div className="max-w-3xl">
+      <div className="max-w-3xl space-y-12">
         {TESTIMONIALS.map((t, i) => (
           <Reveal
             key={i}

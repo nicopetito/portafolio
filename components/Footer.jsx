@@ -16,7 +16,7 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="px-6 md:px-12 py-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
+    <footer className="px-6 md:px-12 py-10 md:py-12 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
       <p className="text-muted text-xs font-jakarta">
         © {year} Nicolás Videla Petito
         <span className="mx-2 opacity-30">·</span>
