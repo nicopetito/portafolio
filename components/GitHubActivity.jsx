@@ -166,7 +166,7 @@ export default function GitHubActivity() {
             {lang === 'es' ? 'Contribuciones — último año' : 'Contributions — last year'}
           </p>
 
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto min-w-0">
             <GitHubCalendar
               username="nicopetito"
               theme={calendarTheme}

@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import Link from 'next/link'
 import { useLang } from './LangProvider'
 
 const LINKS = {
@@ -24,11 +25,26 @@ export default function Nav() {
   const [open, setOpen] = useState(false)
   const { lang, setLang } = useLang()
 
+  // Detect scroll for nav background
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  // Close mobile menu on scroll
+  useEffect(() => {
+    if (!open) return
+    const onScroll = () => setOpen(false)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [open])
+
+  // Lock body scroll while menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [open])
 
   const toggleLang = () => setLang(lang === 'es' ? 'en' : 'es')
 
@@ -63,6 +79,12 @@ export default function Nav() {
               {link.label}
             </a>
           ))}
+          <Link
+            href="/cv"
+            className="text-[11px] font-syne font-bold text-muted hover:text-accent border border-border hover:border-accent/50 px-3 py-1.5 rounded-full transition-all duration-200 tracking-widest"
+          >
+            CV
+          </Link>
         </div>
 
         {/* Right: lang toggle + mobile btn */}
@@ -77,11 +99,26 @@ export default function Nav() {
           <button
             onClick={() => setOpen(!open)}
             className="md:hidden text-muted hover:text-text transition-colors"
+            aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
           >
             {open ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </motion.nav>
+
+      {/* Backdrop — tap outside to close */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-30 bg-text/20 backdrop-blur-sm md:hidden"
+            onClick={() => setOpen(false)}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Mobile menu */}
       <AnimatePresence>
@@ -103,6 +140,13 @@ export default function Nav() {
                 {link.label}
               </a>
             ))}
+            <Link
+              href="/cv"
+              onClick={() => setOpen(false)}
+              className="text-text font-syne font-semibold text-lg"
+            >
+              CV
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

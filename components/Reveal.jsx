@@ -1,5 +1,5 @@
 'use client'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 
 export default function Reveal({
   children,
@@ -14,13 +14,14 @@ export default function Reveal({
   ...rest
 }) {
   const MotionTag = motion[as]
+  const reduced = useReducedMotion()
 
   return (
     <MotionTag
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reduced ? {} : { opacity: 0, y }}
+      whileInView={reduced ? {} : { opacity: 1, y: 0 }}
       viewport={{ once, margin }}
-      transition={{ duration, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: reduced ? 0 : duration, delay: reduced ? 0 : delay, ease: [0.16, 1, 0.3, 1] }}
       className={className}
       style={style}
       {...rest}
