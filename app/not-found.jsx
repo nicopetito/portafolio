@@ -16,14 +16,20 @@ export default function NotFound() {
         404
       </p>
 
-      {/* Title */}
-      <h1 className="font-syne font-bold text-text mb-3" style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.25rem)' }}>
+      {/* Title — bilingual */}
+      <h1 className="font-syne font-bold text-text mb-1" style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.25rem)' }}>
         Esta ruta no tiene endpoint.
       </h1>
+      <p className="font-syne text-muted/60 mb-4" style={{ fontSize: 'clamp(0.85rem, 1.8vw, 0.95rem)' }}>
+        This route has no endpoint.
+      </p>
 
       {/* Subtitle */}
-      <p className="font-jakarta text-muted text-[14px] mb-10">
+      <p className="font-jakarta text-muted text-[14px] mb-1">
         Pero tranqui, el resto del sitio sí funciona.
+      </p>
+      <p className="font-jakarta text-muted/50 text-[13px] mb-10">
+        But chill, the rest of the site works fine.
       </p>
 
       {/* CTAs */}
@@ -32,13 +38,13 @@ export default function NotFound() {
           href="/"
           className="px-6 py-2.5 rounded-lg bg-text text-bg font-jakarta text-[14px] font-medium hover:bg-text/85 transition-colors duration-200"
         >
-          Volver al inicio
+          Inicio / Home
         </Link>
         <Link
           href="/#proyectos"
           className="px-6 py-2.5 rounded-lg border border-border text-text font-jakarta text-[14px] font-medium hover:border-accent/50 hover:text-accent transition-colors duration-200"
         >
-          Ver proyectos
+          Proyectos / Projects
         </Link>
       </div>
     </main>

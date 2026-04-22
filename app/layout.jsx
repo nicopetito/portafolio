@@ -16,6 +16,10 @@ const jakarta = Inter({
   display: 'swap',
 })
 
+export const viewport = {
+  themeColor: '#f8f7f4',
+}
+
 export const metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nicolasvidela.dev'
