@@ -16,7 +16,7 @@ export default function TechMarquee() {
       }}
     >
       {/* Track — duplicated to fill -50% loop */}
-      <div className="flex whitespace-nowrap animate-marquee">
+      <div className="flex whitespace-nowrap animate-marquee hover:[animation-play-state:paused]">
         {[...ITEMS, ...ITEMS].map((tech, i) => (
           <span
             key={i}

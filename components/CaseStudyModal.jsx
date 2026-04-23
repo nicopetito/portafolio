@@ -67,7 +67,7 @@ export default function CaseStudyModal({ project, lang, onClose }) {
               </a>
             )}
             <button onClick={onClose}
-              className="text-muted hover:text-text transition-colors p-1 rounded-lg hover:bg-surface"
+              className="text-muted hover:text-text transition-colors p-3 rounded-lg hover:bg-surface"
               aria-label="Cerrar">
               <X size={18} />
             </button>
@@ -129,7 +129,7 @@ export default function CaseStudyModal({ project, lang, onClose }) {
                 </thead>
                 <tbody>
                   {cs.techStack.map((row, i) => (
-                    <tr key={i} className={i < cs.techStack.length - 1 ? 'border-b border-border' : ''}>
+                    <tr key={i} className={`hover:bg-surface transition-colors ${i < cs.techStack.length - 1 ? 'border-b border-border' : ''}`}>
                       <td className="px-4 py-2.5 font-medium text-text">{row.tech}</td>
                       <td className="px-4 py-2.5 text-muted">{row.role[lang]}</td>
                     </tr>

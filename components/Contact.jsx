@@ -69,14 +69,14 @@ export default function Contact() {
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-accent text-bg font-syne font-bold text-sm px-8 py-4 rounded-full hover:bg-accent/90 hover:scale-[1.03] active:scale-95 transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 bg-accent text-bg font-syne font-bold text-sm px-8 py-4 rounded-full hover:bg-accent/90 hover:scale-[1.03] active:scale-95 transition-all duration-200 w-full sm:w-auto"
           >
             <MessageCircle size={16} />
             WhatsApp
           </a>
           <a
             href={mailUrl}
-            className="inline-flex items-center justify-center gap-2 border border-border text-text font-syne font-bold text-sm px-8 py-4 rounded-full hover:border-accent/50 hover:text-accent transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 border border-border text-text font-syne font-bold text-sm px-8 py-4 rounded-full hover:border-accent/50 hover:text-accent transition-all duration-200 w-full sm:w-auto"
           >
             <Mail size={16} />
             Email
@@ -85,14 +85,14 @@ export default function Contact() {
             href={PERSONAL.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 border border-border text-muted font-syne font-bold text-sm px-8 py-4 rounded-full hover:border-accent/50 hover:text-accent transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 border border-border text-muted font-syne font-bold text-sm px-8 py-4 rounded-full hover:border-accent/50 hover:text-accent transition-all duration-200 w-full sm:w-auto"
           >
             <GitHubIcon size={16} />
             GitHub
           </a>
           <Link
             href="/cv"
-            className="inline-flex items-center justify-center gap-2 border border-text/30 text-text font-syne font-bold text-sm px-8 py-4 rounded-full hover:border-accent hover:text-accent transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 border border-text/30 text-text font-syne font-bold text-sm px-8 py-4 rounded-full hover:border-accent hover:text-accent transition-all duration-200 w-full sm:w-auto"
           >
             <Download size={16} />
             CV

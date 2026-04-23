@@ -120,7 +120,7 @@ export default function GitHubActivity() {
               href={repo.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group border border-border rounded-2xl p-5 hover:border-accent/30 hover:bg-surface/60 transition-all duration-300"
+              className="group border border-border rounded-2xl p-5 hover:border-accent/30 hover:bg-surface/60 hover:-translate-y-1.5 transition-all duration-300"
             >
               <div className="flex items-start justify-between gap-2 mb-2">
                 <span className="font-syne font-bold text-sm text-text group-hover:text-accent transition-colors duration-200 truncate">
@@ -166,7 +166,7 @@ export default function GitHubActivity() {
             {lang === 'es' ? 'Contribuciones — último año' : 'Contributions — last year'}
           </p>
 
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto min-w-0">
             <GitHubCalendar
               username="nicopetito"
               theme={calendarTheme}

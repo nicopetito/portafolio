@@ -25,6 +25,26 @@ body {
   }
 }
 
+.cursor-dot {
+  transition: opacity 0.15s ease;
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+
+.cursor-dot[data-hover="true"] {
+  opacity: 0;
+}
+
+.cursor-ring[data-hover="true"] {
+  width: 48px;
+  height: 48px;
+  border-color: rgba(4, 120, 87, 0.55);
+}
+
 /* ── Scrollbar ────────────────────────────── */
 ::-webkit-scrollbar {
   width: 3px;
@@ -54,7 +74,7 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
   opacity: 0.022;
   pointer-events: none;
-  z-index: 9997;
+  z-index: 2;
 }
 
 /* ── Subtle grid pattern utility ─────────── */

@@ -5,13 +5,22 @@ import PrintButton from './PrintButton'
 export const metadata = {
   title: 'CV — Nicolás Videla Petito',
   description: 'Currículum Vitae de Nicolás Videla Petito, Desarrollador Web.',
+  openGraph: {
+    title: 'CV — Nicolás Videla Petito',
+    description: 'Currículum Vitae de Nicolás Videla Petito, Desarrollador Web.',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Nicolás Videla Petito — Desarrollador Web' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/opengraph-image'],
+  },
 }
 
 export default function CVPage() {
   return (
     <>
       {/* Print button — hidden on print */}
-      <div className="print:hidden fixed top-4 right-4 z-50 flex gap-2">
+      <div className="print:hidden fixed top-4 left-4 right-4 z-50 flex justify-end gap-2">
         <a
           href="/"
           className="inline-flex items-center gap-2 border border-border text-muted font-syne font-bold text-xs px-4 py-2.5 rounded-full hover:border-accent/50 hover:text-accent transition-all duration-200 bg-bg"
@@ -21,7 +30,7 @@ export default function CVPage() {
         <PrintButton />
       </div>
 
-      <main className="min-h-screen bg-bg text-text px-8 py-14 max-w-[820px] mx-auto print:px-0 print:py-0">
+      <main className="min-h-screen bg-bg text-text px-5 sm:px-8 py-10 sm:py-14 max-w-[820px] mx-auto print:px-0 print:py-0">
 
         {/* Header */}
         <header className="mb-10 pb-8 border-b border-border print:pb-5 print:mb-7">
@@ -83,7 +92,7 @@ export default function CVPage() {
           <div className="space-y-7">
             {PROJECTS.map((p) => (
               <div key={p.name.es} className="border-l-2 border-border pl-5 print:break-inside-avoid">
-                <div className="flex items-start justify-between gap-4 mb-1.5">
+                <div className="flex flex-wrap items-start justify-between gap-2 mb-1.5">
                   <h3 className="font-syne font-bold text-[15px] text-text leading-snug">
                     {p.name.es}
                   </h3>

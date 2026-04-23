@@ -22,7 +22,7 @@ export default function About() {
 
       <div className="grid md:grid-cols-2 gap-14 md:gap-20 items-start">
         {/* Photo */}
-        <Reveal delay={0.1} className="relative aspect-[3/4] max-w-[340px] w-full">
+        <Reveal delay={0.1} className="relative aspect-[3/4] max-w-[340px] w-full mx-auto md:mx-0">
           <div className="w-full h-full rounded-2xl overflow-hidden border border-border relative">
             <Image
               src="/yo.png"

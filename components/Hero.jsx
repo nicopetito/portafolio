@@ -126,7 +126,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.1 }}
-        className="absolute bottom-8 right-6 md:right-12 flex flex-col items-end gap-1.5 text-muted text-xs font-jakarta max-w-[260px] md:max-w-none"
+        className="hidden sm:flex absolute bottom-8 right-6 md:right-12 flex-col items-end gap-1.5 text-muted text-xs font-jakarta"
       >
         <div className="flex items-center gap-1.5">
           <MapPin size={12} />
