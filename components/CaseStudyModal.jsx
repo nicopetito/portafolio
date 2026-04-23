@@ -45,13 +45,19 @@ export default function CaseStudyModal({ project, lang, onClose }) {
       ref={overlayRef}
       onClick={handleOverlayClick}
       className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-text/40 backdrop-blur-sm px-4 py-8 md:py-16"
+      aria-label={lang === 'es' ? 'Fondo del modal' : 'Modal backdrop'}
     >
-      <div className="relative w-full max-w-3xl bg-bg border border-border rounded-2xl shadow-xl">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        className="relative w-full max-w-3xl bg-bg border border-border rounded-2xl shadow-xl"
+      >
         {/* Header */}
         <div className="sticky top-0 z-10 bg-bg/95 backdrop-blur-sm border-b border-border px-6 md:px-10 py-5 flex items-start justify-between gap-4 rounded-t-2xl">
           <div className="flex-1 min-w-0">
             <p className="text-[11px] font-jakarta text-muted uppercase tracking-[0.15em] mb-1">Case Study</p>
-            <h2 className="font-syne font-bold text-text text-lg md:text-xl leading-snug">{name[lang]}</h2>
+            <h2 id="modal-title" className="font-syne font-bold text-text text-lg md:text-xl leading-snug">{name[lang]}</h2>
           </div>
           <div className="flex items-center gap-3 pt-1 flex-shrink-0">
             {url && (

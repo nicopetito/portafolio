@@ -91,6 +91,7 @@ export default function Nav() {
         <div className="flex items-center gap-3">
           <button
             onClick={toggleLang}
+            aria-label={lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
             className="font-syne font-bold text-[11px] tracking-widest text-muted hover:text-accent border border-border hover:border-accent/50 px-2.5 py-1 rounded transition-all duration-200"
           >
             {lang === 'es' ? 'EN' : 'ES'}
@@ -98,6 +99,9 @@ export default function Nav() {
 
           <button
             onClick={() => setOpen(!open)}
+            aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
             className="md:hidden text-muted hover:text-text transition-colors"
             aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
           >
@@ -124,6 +128,7 @@ export default function Nav() {
       <AnimatePresence>
         {open && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}

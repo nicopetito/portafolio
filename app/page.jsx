@@ -1,3 +1,10 @@
+export const metadata = {
+  title: 'Nicolás Videla Petito — Desarrollador Web Freelance',
+  description:
+    'Portfolio de Nicolás Videla Petito. Desarrollador web freelance en Mar del Plata, Argentina. Especializado en React, Next.js y Supabase.',
+  alternates: { canonical: '/' },
+}
+
 import { LangProvider } from '@/components/LangProvider'
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
