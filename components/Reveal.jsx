@@ -1,4 +1,5 @@
 'use client'
+import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 
 export default function Reveal({
@@ -15,10 +16,13 @@ export default function Reveal({
 }) {
   const MotionTag = motion[as]
   const reduced = useReducedMotion()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => { setMounted(true) }, [])
 
   return (
     <MotionTag
-      initial={reduced ? {} : { opacity: 0, y }}
+      initial={!mounted || reduced ? {} : { opacity: 0, y }}
       whileInView={reduced ? {} : { opacity: 1, y: 0 }}
       viewport={{ once, margin }}
       transition={{ duration: reduced ? 0 : duration, delay: reduced ? 0 : delay, ease: [0.16, 1, 0.3, 1] }}

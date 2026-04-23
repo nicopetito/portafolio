@@ -20,6 +20,9 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nicolasvidela.dev'
 
 export const viewport = {
   themeColor: '#f8f7f4',
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
 }
 
 export const metadata = {
@@ -107,7 +110,7 @@ export default function RootLayout({ children }) {
       lang="es"
       className={`${syne.variable} ${jakarta.variable}`}
     >
-      <body className="bg-bg text-text antialiased">
+      <body className="bg-bg text-text antialiased" suppressHydrationWarning>
         <Cursor />
         <script
           type="application/ld+json"

@@ -10,9 +10,9 @@ export default function About() {
   const { lang } = useLang()
 
   return (
-    <section id="sobre" className="px-6 md:px-12 lg:px-20 py-28 border-t border-border">
+    <section id="sobre" className="px-6 md:px-12 lg:px-20 py-16 md:py-28 border-t border-border">
       {/* Section label */}
-      <Reveal delay={0} className="flex items-center gap-3 mb-16">
+      <Reveal delay={0} className="flex items-center gap-3 mb-10 md:mb-16">
         <span className="text-accent font-syne font-bold text-xs tracking-[0.2em]">01</span>
         <span className="w-8 h-px bg-border" />
         <span className="text-muted font-syne text-xs uppercase tracking-[0.15em]">
@@ -20,7 +20,7 @@ export default function About() {
         </span>
       </Reveal>
 
-      <div className="grid md:grid-cols-2 gap-14 md:gap-20 items-start">
+      <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-start">
         {/* Photo */}
         <Reveal delay={0.1} className="relative aspect-[3/4] max-w-[340px] w-full mx-auto md:mx-0">
           <div className="w-full h-full rounded-2xl overflow-hidden border border-border relative">
@@ -77,9 +77,9 @@ export default function About() {
           <Reveal delay={0.32}>
             <Link
               href="/cv"
-              className="inline-flex items-center gap-2 border border-text/30 text-text font-syne font-bold text-xs px-5 py-3 rounded-full hover:border-accent hover:text-accent transition-all duration-200"
+              className="inline-flex items-center gap-2 border border-text/30 text-text font-syne font-bold text-sm px-6 py-3.5 min-h-[48px] rounded-full hover:border-accent hover:text-accent active:border-accent active:text-accent transition-all duration-200"
             >
-              <Download size={13} />
+              <Download size={15} />
               {lang === 'es' ? 'Ver / Descargar CV' : 'View / Download CV'}
             </Link>
           </Reveal>

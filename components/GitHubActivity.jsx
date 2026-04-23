@@ -75,7 +75,7 @@ export default function GitHubActivity() {
   }
 
   return (
-    <section id="github" className="px-6 md:px-12 lg:px-20 py-28 border-t border-border">
+    <section id="github" className="px-6 md:px-12 lg:px-20 py-16 md:py-28 border-t border-border">
       {/* Label */}
       <Reveal delay={0} className="flex items-center gap-3 mb-6">
         <span className="text-accent font-syne font-bold text-xs tracking-[0.2em]">03</span>
@@ -87,7 +87,7 @@ export default function GitHubActivity() {
       <Reveal
         as="h2"
         delay={0.08}
-        className="font-display font-normal text-text leading-tight mb-16 max-w-xl"
+        className="font-display font-normal text-text leading-tight mb-10 md:mb-16 max-w-xl"
         style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}
       >
         {lang === 'es' ? 'Actividad en GitHub' : 'GitHub Activity'}
@@ -161,12 +161,12 @@ export default function GitHubActivity() {
         </Reveal>
 
         {/* ── Bloque B: Calendario ── */}
-        <Reveal delay={0.18} className="lg:col-span-2 border border-border rounded-2xl p-6 md:p-8 flex flex-col gap-4">
+        <Reveal delay={0.18} className="lg:col-span-2 border border-border rounded-2xl p-6 md:p-8 flex flex-col gap-4 overflow-hidden">
           <p className="font-syne text-[10px] uppercase tracking-[0.18em] text-muted">
             {lang === 'es' ? 'Contribuciones — último año' : 'Contributions — last year'}
           </p>
 
-          <div className="overflow-x-auto min-w-0">
+          <div className="overflow-x-auto min-w-0" style={{ WebkitOverflowScrolling: 'touch' }}>
             <GitHubCalendar
               username="nicopetito"
               theme={calendarTheme}

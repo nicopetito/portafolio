@@ -10,7 +10,7 @@ export default function Services() {
   const { lang } = useLang()
 
   return (
-    <section id="servicios" className="px-6 md:px-12 lg:px-20 py-28 border-t border-border">
+    <section id="servicios" className="px-6 md:px-12 lg:px-20 py-16 md:py-28 border-t border-border">
       {/* Label */}
       <Reveal delay={0} className="flex items-center gap-3 mb-6">
         <span className="text-accent font-syne font-bold text-xs tracking-[0.2em]">04</span>
@@ -24,7 +24,7 @@ export default function Services() {
       <Reveal
         as="h2"
         delay={0.08}
-        className="font-display font-normal text-text leading-tight mb-16 max-w-xl"
+        className="font-display font-normal text-text leading-tight mb-10 md:mb-16 max-w-xl"
         style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}
       >
         {lang === 'es' ? '¿En qué te puedo ayudar?' : 'How can I help you?'}
@@ -40,10 +40,10 @@ export default function Services() {
             <Reveal
               key={i}
               delay={0.1 + i * 0.1}
-              className={`group rounded-2xl p-7 transition-all duration-300 relative overflow-hidden ${
+              className={`group rounded-2xl p-5 md:p-7 transition-all duration-300 relative overflow-hidden ${
                 isFeatured
-                  ? 'border-2 border-accent/40 bg-accent/[0.03] hover:border-accent/70 hover:-translate-y-1.5'
-                  : 'border border-border hover:border-accent/20 hover:bg-surface/60 hover:-translate-y-1.5'
+                  ? 'border-2 border-accent/40 bg-accent/[0.03] hover:border-accent/70 hover:-translate-y-1.5 active:border-accent/70 active:bg-accent/[0.06]'
+                  : 'border border-border hover:border-accent/20 hover:bg-surface/60 hover:-translate-y-1.5 active:border-accent/20 active:bg-surface/60'
               }`}
             >
               {isFeatured && (

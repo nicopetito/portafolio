@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
@@ -23,6 +23,8 @@ const LINKS = {
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [navHeight, setNavHeight] = useState(64)
+  const navRef = useRef(null)
   const { lang, setLang } = useLang()
 
   // Detect scroll for nav background
@@ -46,15 +48,27 @@ export default function Nav() {
     return () => { document.body.style.overflow = '' }
   }, [open])
 
+  // Track actual nav height so mobile menu aligns precisely (handles safe-area insets)
+  useEffect(() => {
+    const el = navRef.current
+    if (!el) return
+    const obs = new ResizeObserver(() => setNavHeight(el.offsetHeight))
+    obs.observe(el)
+    setNavHeight(el.offsetHeight)
+    return () => obs.disconnect()
+  }, [])
+
   const toggleLang = () => setLang(lang === 'es' ? 'en' : 'es')
 
   return (
     <>
       <motion.nav
+        ref={navRef}
         initial={{ y: -24, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-5 flex items-center justify-between transition-all duration-300 ${
+        style={{ paddingTop: 'max(1.25rem, env(safe-area-inset-top))' }}
+        className={`fixed top-0 left-0 right-0 z-50 px-6 md:px-12 pb-5 flex items-center justify-between transition-all duration-300 ${
           scrolled
             ? 'bg-bg/80 backdrop-blur-xl border-b border-border/60'
             : ''
@@ -92,7 +106,7 @@ export default function Nav() {
           <button
             onClick={toggleLang}
             aria-label={lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
-            className="font-syne font-bold text-[11px] tracking-widest text-muted hover:text-accent border border-border hover:border-accent/50 px-2.5 py-1 rounded transition-all duration-200"
+            className="font-syne font-bold text-[11px] tracking-widest text-muted hover:text-accent border border-border hover:border-accent/50 active:text-accent active:border-accent/50 px-2.5 py-1 rounded transition-all duration-200"
           >
             {lang === 'es' ? 'EN' : 'ES'}
           </button>
@@ -102,10 +116,9 @@ export default function Nav() {
             aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className="md:hidden text-muted hover:text-text transition-colors"
-            aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+            className="md:hidden text-muted hover:text-text active:text-accent transition-colors p-3 -mr-3 min-h-[44px] min-w-[44px] flex items-center justify-center"
           >
-            {open ? <X size={18} /> : <Menu size={18} />}
+            {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </motion.nav>
@@ -133,14 +146,15 @@ export default function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-[64px] left-0 right-0 z-40 bg-surface border-b border-border px-6 py-6 flex flex-col gap-5 md:hidden"
+            className="fixed left-0 right-0 z-40 bg-surface border-b border-border px-6 py-4 flex flex-col md:hidden"
+          style={{ top: navHeight }}
           >
             {LINKS[lang].map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="text-text font-syne font-semibold text-lg"
+                className="text-text font-syne font-semibold text-lg py-3.5 border-b border-border/40 last:border-b-0 active:text-accent transition-colors"
               >
                 {link.label}
               </a>
@@ -148,7 +162,7 @@ export default function Nav() {
             <Link
               href="/cv"
               onClick={() => setOpen(false)}
-              className="text-text font-syne font-semibold text-lg"
+              className="text-text font-syne font-semibold text-lg py-3.5 active:text-accent transition-colors"
             >
               CV
             </Link>

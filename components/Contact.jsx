@@ -19,7 +19,7 @@ export default function Contact() {
   )}`
 
   return (
-    <section id="contacto" className="px-6 md:px-12 lg:px-20 py-28 border-t border-border relative overflow-hidden">
+    <section id="contacto" className="px-6 md:px-12 lg:px-20 py-16 md:py-28 border-t border-border relative overflow-hidden">
       {/* BG glow */}
       <div className="absolute bottom-0 left-0 w-[600px] h-[400px] bg-accent/[0.025] blur-[140px] rounded-full pointer-events-none" />
 
@@ -36,8 +36,8 @@ export default function Contact() {
         <Reveal
           as="h2"
           delay={0.08}
-          className="font-syne font-black text-text leading-tight mb-6"
-          style={{ fontSize: 'clamp(2.8rem, 7vw, 6rem)' }}
+          className="font-syne font-black text-text leading-[1.05] mb-5"
+          style={{ fontSize: 'clamp(2rem, 7vw, 6rem)' }}
         >
           {lang === 'es' ? (
             <>
@@ -57,26 +57,26 @@ export default function Contact() {
         <Reveal
           as="p"
           delay={0.16}
-          className="text-muted font-jakarta text-[15px] leading-relaxed mb-12 max-w-md"
+          className="text-muted font-jakarta text-[15px] leading-relaxed mb-8 md:mb-12 max-w-md"
         >
           {lang === 'es'
             ? 'Estoy disponible para proyectos freelance, colaboraciones y consultas. Respondo en menos de 24 horas.'
             : "I'm available for freelance projects, collaborations and inquiries. I reply within 24 hours."}
         </Reveal>
 
-        <Reveal delay={0.22} className="flex flex-col sm:flex-row gap-3">
+        <Reveal delay={0.22} className="grid grid-cols-2 sm:flex sm:flex-row gap-3">
           <a
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-accent text-bg font-syne font-bold text-sm px-8 py-4 rounded-full hover:bg-accent/90 hover:scale-[1.03] active:scale-95 transition-all duration-200 w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-2 bg-accent text-bg font-syne font-bold text-sm px-6 py-4 min-h-[52px] rounded-full hover:bg-accent/90 hover:scale-[1.03] active:scale-95 active:bg-accent/90 transition-all duration-200 col-span-2 sm:col-span-1"
           >
             <MessageCircle size={16} />
             WhatsApp
           </a>
           <a
             href={mailUrl}
-            className="inline-flex items-center justify-center gap-2 border border-border text-text font-syne font-bold text-sm px-8 py-4 rounded-full hover:border-accent/50 hover:text-accent transition-all duration-200 w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-2 border border-border text-text font-syne font-bold text-sm px-6 py-4 min-h-[52px] rounded-full hover:border-accent/50 hover:text-accent active:border-accent/50 active:text-accent transition-all duration-200"
           >
             <Mail size={16} />
             Email
@@ -85,14 +85,14 @@ export default function Contact() {
             href={PERSONAL.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 border border-border text-muted font-syne font-bold text-sm px-8 py-4 rounded-full hover:border-accent/50 hover:text-accent transition-all duration-200 w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-2 border border-border text-muted font-syne font-bold text-sm px-6 py-4 min-h-[52px] rounded-full hover:border-accent/50 hover:text-accent active:border-accent/50 active:text-accent transition-all duration-200"
           >
             <GitHubIcon size={16} />
             GitHub
           </a>
           <Link
             href="/cv"
-            className="inline-flex items-center justify-center gap-2 border border-text/30 text-text font-syne font-bold text-sm px-8 py-4 rounded-full hover:border-accent hover:text-accent transition-all duration-200 w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-2 border border-text/30 text-text font-syne font-bold text-sm px-6 py-4 min-h-[52px] rounded-full hover:border-accent hover:text-accent active:border-accent active:text-accent transition-all duration-200"
           >
             <Download size={16} />
             CV
